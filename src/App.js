@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import Swapi from './Components/Swapi/Swapi';
+import { Provider } from 'react-redux';
+import { storeData } from './store';
+import storeDataToolkit from './toolkitStore';
+import SwapiToolkit from './Components/SwapiToolkit/SwapiToolkit';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Provider store={storeData}>
+            <Swapi />
+        </Provider>
+        <Provider store={storeDataToolkit}>
+            <SwapiToolkit />
+        </Provider>
     </div>
   );
 }
